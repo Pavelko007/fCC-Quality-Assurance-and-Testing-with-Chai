@@ -72,8 +72,13 @@ suite("Functional Tests", function () {
 });
 
 const Browser = require("zombie");
+Browser.site = 'https://0g1s0qm7-3000.euw.devtunnels.ms/'
 
 suite("Functional Tests with Zombie.js", function () {
+  const browser = new Browser();
+  suiteSetup(function (done){
+    browser.visit('/', done);
+  })
   this.timeout(5000);
 
   suite("Headless browser", function () {
